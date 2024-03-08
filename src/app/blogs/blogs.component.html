@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon S3 || Angular</title>
+  <style>
+    /* CSS for Cards */
+
+    /* Add any CSS styling for your code block here */
+    a.selected {
+      background-color: white;
+      /* text-decoration: underline; */
+      margin-left: -5%;
+
+      padding-left: 9px;
+      padding-right: 9px;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      border-radius: 5px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* CSS for Sticky Sidebar and Content */
+
+    .custom-sidebar,
+    .dynamic-content {
+      position: sticky;
+      top: 0;
+    }
+
+    .custom-sidebar {
+      width: 15%;
+      /* Adjust width as needed */
+      height: 100vh;
+      /* Make sidebar full height */
+      overflow-y: auto;
+      /* Enable scrolling */
+      background-color: #f0f0f0;
+      /* Example background color */
+    }
+
+    .dynamic-content {
+      width: 80%;
+      /* Adjust width as needed */
+      margin-left: 2%;
+    }
+
+    /* Additional styling for the sidebar and content */
+  </style>
+</head>
+
+<body style="background-color: white">
+
+  <div class="blogs" style="display: flex;">
+
+    <div id="csidebar" class="custom-sidebar">
+      <div class="user">
+        AWS DEV BLOGS
+      </div>
+
+
+      <div class="links">
+
+        <ul>
+          <li><a href="/blogs/aws-free-tier?nav=freetier" (click)="freetrialfunc()" [class.selected]="freetrial">
+              Creating an AWS Free Tier Account
+            </a></li>
+          <li><a href="/blogs/angular-on-s3?nav=NgS3" (click)="AngularS3func()" [class.selected]="angularS3">
+              Hosting a frontend App on AWS S3
+            </a></li>
+          <li><a [class.selected]="">
+              Hosting a backend Application on elastic Beanstalk
+            </a></li>
+          <li><a [class.selected]="">
+              Going Serverless with AWS Lambda
+            </a></li>
+          <li><a [class.selected]="">
+              Introduction to amazon ECS
+            </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dynamic-content">
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+
+  <script>
+
+    const sidebar = document.querySelector('.custom-sidebar');
+    const content = document.querySelector('.dynamic-content');
+
+    window.addEventListener('scroll', function () {
+      const sidebarOffsetTop = sidebar.getBoundingClientRect().top;
+      const contentOffsetTop = content.getBoundingClientRect().top;
+
+      if (sidebarOffsetTop <= 0) {
+        sidebar.style.position = 'fixed';
+        sidebar.style.top = '0';
+        content.style.marginLeft = `${sidebar.offsetWidth}px`;
+      } else {
+        sidebar.style.position = 'sticky';
+        sidebar.style.top = '0';
+        content.style.marginLeft = '5%'; // Reset margin
+      }
+
+      if (contentOffsetTop <= 0) {
+        content.style.position = 'fixed';
+        content.style.top = '0';
+        sidebar.style.left = `${content.offsetLeft}px`;
+      } else {
+        content.style.position = 'sticky';
+        content.style.top = '0';
+        sidebar.style.left = '0'; // Reset left position
+      }
+    });
+  </script>
+
+</body>
+
+</html>
