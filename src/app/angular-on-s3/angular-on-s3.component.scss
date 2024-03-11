@@ -3,7 +3,6 @@
     background-color: rgb(242, 242, 242);
     height: calc(100vh - 42px);
     margin-top: -0.2%;
-    overflow-y: auto;
     border-top-right-radius: 1px;
     border-bottom-right-radius: 1px;
     width: 15%;
@@ -84,7 +83,6 @@
   .intro {
     color: #2b2422;
     font-size: 100%;
-    margin-left: 2%;
   }
   .main-title {
     margin-bottom: 2%;
@@ -97,7 +95,7 @@
   .top-pic {
     display: block;
     height: 120px;
-    width: 500px;
+    width: 450px;
     margin-left: auto; /* Set the left margin to auto */
     margin-right: auto;
     margin-top: 1%;
@@ -107,9 +105,7 @@
 
 @media only screen and (max-width: 1200px) {
   body {
-    margin-left: 5%;
-    margin-right: 5%;
-    font-family: Roboto;
+    background-color: white;
   }
 
   .writer {
@@ -132,7 +128,7 @@
     margin-bottom: 5px;
   }
   .content1 {
-    font-size: 108%;
+    font-size: 100%;
   }
 
   .main-title {
@@ -141,8 +137,7 @@
   }
   .intro {
     color: #2b2422;
-    font-size: 115%;
-    margin-left: 2%;
+    font-size: 100%;
   }
   .metric {
     display: block;

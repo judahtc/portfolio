@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "aws-deploy": "aws s3 sync dist/judah-portfolio/browser/ s3://judahportfolio --profile second-account"
   },
   "private": true,
   "dependencies": {

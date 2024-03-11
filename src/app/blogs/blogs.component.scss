@@ -1,6 +1,6 @@
 @media only screen and (min-width: 1200px) {
   .custom-sidebar {
-    background-color: rgb(242, 242, 242);
+    background-color: rgb(242, 244, 246);
     height: calc(100vh - 42px);
     margin-top: -0.2%;
     overflow-y: auto;
@@ -9,8 +9,14 @@
     width: 15%;
     // border-right: 2px solid rgb(232, 239, 246);
   }
+
   .dynamic-content {
-    margin-top: 4%;
+    width: 83%;
+    /* Adjust width as needed */
+    margin-left: 1%;
+  }
+  .dynamic-content {
+    margin-top: 3%;
 
     background-color: white;
     box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
@@ -116,16 +122,18 @@
 
 @media only screen and (max-width: 1200px) {
   body {
-    margin-left: 5%;
-    margin-right: 5%;
-    font-family: Roboto;
+    background-color: white;
+    padding-left: 1%;
+    padding-right: 1%;
   }
 
   .writer {
-    font-size: 80%;
+    font-size: 60%;
     color: gray;
   }
-
+  .custom-sidebar {
+    display: none;
+  }
   .code-container {
     border: 1px solid #ccd;
     border-radius: 5px;
@@ -167,5 +175,20 @@
     margin-right: auto;
     margin-top: 1%;
     margin-bottom: 1%;
+  }
+
+  .dynamic-content {
+    margin-top: 7%;
+
+    background-color: white;
+
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+  }
+
+  .dynamic-content {
+    width: 100%;
+    /* Adjust width as needed */
   }
 }

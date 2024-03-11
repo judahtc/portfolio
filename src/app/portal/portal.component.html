@@ -30,7 +30,7 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top"
-    style="background-color:rgb(242, 244, 246);padding:0;margin-bottom: 2%; box-shadow:  1px 1px rgb(232, 239, 246)">
+    style="background-color:rgb(242, 244, 246);padding:0;margin-bottom: 2%; box-shadow:  1px 2px white">
     <div class=" d-flex align-items-center justify-content-between">
 
       <h6 class=""><a href="index.html" style="font-size:80%;color: black;margin-left: 10%;">JudeTech</a></h6>
@@ -42,8 +42,8 @@
           <li><a style="font-size: 80%;color: black;" (click)=" home_func()" class="nav-link " [class.selected]="home"
               href="/portfolio?page=home">Portfolio</a>
           </li>
-          <li><a style="font-size: 80%;color: black;" (click)=" blogs_func()" class="nav-link " href="/blogs?page=blogs"
-              [class.selected]="blogs">Blogs</a></li>
+          <li><a style="font-size: 80%;color: black;" (click)=" blogs_func()" class="nav-link "
+              href="/blogs/aws-free-tier?nav=freetier" [class.selected]="blogs">Blogs</a></li>
           <li><a style="font-size: 80%;color: black;" class="nav-link  " href="#work">Work</a></li>
           <li><a style="font-size: 80%;color: black;" class="nav-link " href="#contact">Contact</a></li>
         </ul>
