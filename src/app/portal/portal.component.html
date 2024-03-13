@@ -39,9 +39,10 @@
               aria-hidden="true"></i></button>
         </div>
       </div>
-
+      <hr *ngIf="sidebar" class="hr-line" style="padding: 0;margin: 0;margin-bottom: 3px;">
       <nav id="navbar" class="navbar">
         <ul *ngIf="sidebar">
+
           <li><a style="font-size: 80%;color: black;" (click)=" home_func()" class="nav-link " [class.selected]="home"
               href="/portfolio?page=home">Portfolio</a>
           </li>
@@ -51,9 +52,11 @@
           <li><a style="font-size: 80%;color: black;" class="nav-link " href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
+
       </nav><!-- .navbar -->
 
     </div>
+
 
 
   </header><!-- End Header -->
