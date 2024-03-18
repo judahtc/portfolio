@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 export class AngularOnS3Component {
   policy: any;
   my_email: any;
+  policyString: any;
   ngOnInit(): void {
     this.my_email = 'jaycea247@gmail.com';
     this.policy = {
@@ -24,5 +25,7 @@ export class AngularOnS3Component {
         },
       ],
     };
+
+    this.policyString = JSON.stringify(this.policy, null, 2);
   }
 }
