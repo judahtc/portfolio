@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { RouterOutlet, Route, Router, ActivatedRoute } from '@angular/router';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-blogs',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './blogs.component.html',
   styleUrls: ['./blogs.component.scss'],
 })
 export class BlogsComponent implements OnInit {
+  sidebar = false;
   constructor(private router: Router, private route: ActivatedRoute) {}
   policy: any;
   my_email: any;
   angularS3 = false;
   freetrial = false;
   ngOnInit(): void {
+    this.checkScreenSize();
     this.route.queryParams.subscribe((params) => {
       // Access query parameters here
       let nav = params['nav'];
@@ -41,6 +44,25 @@ export class BlogsComponent implements OnInit {
         },
       ],
     };
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    if (window.innerWidth <= 1200) {
+      this.sidebar = false;
+    } else {
+      this.sidebar = true;
+    }
+  }
+
+  toggle_out() {
+    this.sidebar = true;
+  }
+  toggle_in() {
+    this.sidebar = false;
   }
 
   AngularS3func() {

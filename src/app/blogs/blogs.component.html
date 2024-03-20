@@ -9,17 +9,7 @@
     /* CSS for Cards */
 
     /* Add any CSS styling for your code block here */
-    a.selected {
-      background-color: white;
-      /* text-decoration: underline; */
-      margin-left: -5%;
 
-      padding-left: 9px;
-      padding-right: 9px;
-      padding-top: 7px;
-      padding-bottom: 7px;
-      border-radius: 5px;
-    }
 
 
 
@@ -27,22 +17,8 @@
 
     /* CSS for Sticky Sidebar and Content */
 
-    .custom-sidebar,
-    .dynamic-content {
-      position: sticky;
-      top: 0;
-    }
 
-    .custom-sidebar {
-      width: 15%;
-      /* Adjust width as needed */
-      height: 100vh;
-      /* Make sidebar full height */
-      overflow-y: auto;
-      /* Enable scrolling */
-      background-color: #f0f0f0;
-      /* Example background color */
-    }
+
 
 
 
@@ -52,21 +28,34 @@
 
 <body style="background-color: white">
 
-  <div class="blogs" style="display: flex;">
 
-    <div id="csidebar" class="custom-sidebar" style="background-color: rgb(242, 244, 246);">
-      <div class="user">
+  <div class="blogs" style="display: flex">
+
+    @if(sidebar!=true){
+    <div class="collapse-menu">
+      <button class="btn sm" (click)="toggle_out()"><i class="fa fa-bars" style="color: #454545;"
+          aria-hidden="true"></i></button>
+    </div>}
+    <div *ngIf="sidebar" id="csidebar" class="custom-sidebar" style="background-color: rgb(242, 244, 246);">
+
+      <!-- <div class="user">
         AWS DEV BLOGS
-      </div>
+      </div> -->
 
 
       <div class="links">
-
+        @if(sidebar==true){
+        <div style="float: right;margin-top: -10%;border:1px solid white ;padding: 0;">
+          <button class="btn sm" (click)="toggle_in()">X</button>
+        </div>}
         <ul>
-          <li><a href="/blogs/aws-free-tier?nav=freetier" (click)="freetrialfunc()" [class.selected]="freetrial">
+
+          <li><a (click)="toggle_in()" href="/blogs/aws-free-tier?nav=freetier" (click)="freetrialfunc()"
+              [class.selected]="freetrial">
               Creating an AWS Free Tier Account
             </a></li>
-          <li><a href="/blogs/angular-on-s3?nav=NgS3" (click)="AngularS3func()" [class.selected]="angularS3">
+          <li><a (click)="toggle_in()" href="/blogs/angular-on-s3?nav=NgS3" (click)="AngularS3func()"
+              [class.selected]="angularS3">
               Hosting a frontend App on AWS S3
             </a></li>
           <li><a [class.selected]="">
@@ -79,8 +68,11 @@
               Introduction to amazon ECS
             </a></li>
         </ul>
+
+
       </div>
     </div>
+
 
     <div class="dynamic-content">
       <router-outlet></router-outlet>
@@ -93,32 +85,19 @@
     const sidebar = document.querySelector('.custom-sidebar');
     const content = document.querySelector('.dynamic-content');
 
-    window.addEventListener('scroll', function () {
-      const sidebarOffsetTop = sidebar.getBoundingClientRect().top;
-      const contentOffsetTop = content.getBoundingClientRect().top;
 
-      if (sidebarOffsetTop <= 0) {
-        sidebar.style.position = 'fixed';
-        sidebar.style.top = '0';
-        content.style.marginLeft = `${sidebar.offsetWidth}px`;
-      } else {
-        sidebar.style.position = 'sticky';
-        sidebar.style.top = '0';
-        content.style.marginLeft = '5%'; // Reset margin
-      }
-
-      if (contentOffsetTop <= 0) {
-        content.style.position = 'fixed';
-        content.style.top = '0';
-        sidebar.style.left = `${content.offsetLeft}px`;
-      } else {
-        content.style.position = 'sticky';
-        content.style.top = '0';
-        sidebar.style.left = '0'; // Reset left position
-      }
-    });
   </script>
 
+
+
+
 </body>
+
+<script>
+  function toggleSidebar() {
+    var sidebar = document.getElementById('custom-sidebar');
+    sidebar.classList.toggle('hidden');
+  }
+</script>
 
 </html>

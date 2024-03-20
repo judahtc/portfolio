@@ -10,6 +10,23 @@
     // border-right: 2px solid rgb(232, 239, 246);
   }
 
+  a.selected {
+    background-color: white;
+    /* text-decoration: underline; */
+    margin-left: -5%;
+
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 5px;
+  }
+  .custom-sidebar,
+  .dynamic-content {
+    position: sticky;
+    top: 0;
+  }
+
   .dynamic-content {
     width: 83%;
     /* Adjust width as needed */
@@ -23,18 +40,6 @@
     padding-left: 4%;
     padding-right: 4%;
     padding-top: 1%;
-  }
-  .custom-sidebar .user {
-    margin-top: 1%;
-    border-radius: 3px;
-    font-weight: 400;
-    font-size: 60%;
-    font-weight: 400;
-    text-align: center;
-    margin-left: auto; /* Set the left margin to auto */
-    margin-right: auto;
-    width: 80%;
-    border: 1px solid white;
   }
 
   .custom-sidebar .links ul li {
@@ -132,8 +137,39 @@
     color: gray;
   }
   .custom-sidebar {
-    display: none;
+    transition: transform 0.3s ease;
+
+    position: absolute;
+    z-index: 2;
+
+    background-color: rgb(242, 244, 246);
+    height: calc(100dvh - 42px);
+    margin-top: -0.2%;
+    margin-left: -3%;
+    list-style: none;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    width: 340px;
+    overflow-y: auto;
   }
+
+  .custom-sidebar .links ul li {
+    list-style: none;
+    font-size: 78%;
+    color: #454545;
+    margin-bottom: 5%;
+    margin-left: -20px;
+    width: 100%;
+    padding-right: 2px;
+  }
+
+  .custom-sidebar ul {
+    margin-top: 20%;
+  }
+  .sidebar.hidden {
+    transform: translateX(-200px); /* Move sidebar off-screen */
+  }
+
   .code-container {
     border: 1px solid #ccd;
     border-radius: 5px;
@@ -178,17 +214,31 @@
   }
 
   .dynamic-content {
-    margin-top: 8%;
+    margin-top: 14%;
 
     background-color: white;
 
     padding-left: 1px;
     padding-right: 1px;
     padding-top: 1px;
+    flex-grow: 1;
   }
 
   .dynamic-content {
     width: 100%;
+
     /* Adjust width as needed */
+  }
+
+  .blogs {
+    position: relative;
+  }
+
+  .collapse-menu {
+    margin-top: 8%;
+
+    margin-left: -3%;
+    z-index: 1;
+    position: absolute;
   }
 }
