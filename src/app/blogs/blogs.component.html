@@ -33,7 +33,7 @@
 
     @if(sidebar!=true){
     <div class="collapse-menu">
-      <button class="btn sm" (click)="toggle_out()"><i class="fa fa-bars" style="color: #454545;"
+      <button class="btn sm" (click)="toggle_out()"><i class="fa fa-chevron-right" style="color: #454545;"
           aria-hidden="true"></i></button>
     </div>}
     <div *ngIf="sidebar" id="csidebar" class="custom-sidebar" style="background-color: rgb(242, 244, 246);">
@@ -75,6 +75,7 @@
 
 
     <div class="dynamic-content">
+      <br>
       <router-outlet></router-outlet>
 
     </div>
