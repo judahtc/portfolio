@@ -50,15 +50,13 @@
         </div>}
         <ul>
 
-          <li><a (click)="toggle_in()" href="/blogs/aws-free-tier?nav=freetier" (click)="freetrialfunc()"
-              [class.selected]="freetrial">
+          <li><a href="/blogs/aws-free-tier?nav=freetier" (click)="freetrialfunc()" [class.selected]="freetrial">
               Creating an AWS Free Tier Account
             </a></li>
-          <li><a (click)="toggle_in()" href="/blogs/angular-on-s3?nav=NgS3" (click)="AngularS3func()"
-              [class.selected]="angularS3">
+          <li><a href="/blogs/angular-on-s3?nav=NgS3" (click)="AngularS3func()" [class.selected]="angularS3">
               Hosting a frontend App on AWS S3
             </a></li>
-          <li><a [class.selected]="">
+          <li><a [class.selected]="beanstalk" href="/blogs/beanstalk?nav=eb">
               Hosting a backend Application on elastic Beanstalk
             </a></li>
           <li><a [class.selected]="">

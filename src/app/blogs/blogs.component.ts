@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class BlogsComponent implements OnInit {
   sidebar = false;
+  beanstalk = false;
   constructor(private router: Router, private route: ActivatedRoute) {}
   policy: any;
   my_email: any;
@@ -26,6 +27,8 @@ export class BlogsComponent implements OnInit {
         this.AngularS3func();
       } else if (nav == 'freetier') {
         this.freetrialfunc();
+      } else if (nav == 'eb') {
+        this.beanstalkfunc();
       } else {
         this.freetrialfunc();
       }
@@ -67,10 +70,18 @@ export class BlogsComponent implements OnInit {
 
   AngularS3func() {
     this.angularS3 = true;
+    this.beanstalk = false;
     this.freetrial = false;
   }
   freetrialfunc() {
     this.angularS3 = false;
+    this.beanstalk = false;
     this.freetrial = true;
+  }
+
+  beanstalkfunc() {
+    this.beanstalk = true;
+    this.angularS3 = false;
+    this.freetrial = false;
   }
 }

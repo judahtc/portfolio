@@ -1,1 +1,46 @@
-<p>beanstalk works!</p>
+<style>
+  a.selected {
+    background-color: rgb(214, 225, 234);
+    /* text-decoration: underline; */
+    padding: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+  }
+</style>
+<h4>A Guide: Deploying your backend Applications on Elastic Beanstalk</h4>
+<hr>
+
+<div class="writer">
+  Judah T Chisare || +263785430774 || <br>
+  AWS Certified Developer -Associate || AWS Certified Solutions Architech -Associate
+
+</div>
+<hr>
+
+<div class="custom-card">
+  Elastic Beanstalk is a cloud computing service provided by AWS that simplifies the deployment
+  and management of backend applications. It automates the setup of infrastructure components like servers, load
+  balancers, and
+  scaling, allowing developers to focus on their code rather than infrastructure and setup management. With Beanstalk,
+  the developer only has to focus on application development rather than deployment
+</div>
+
+<br>
+<div class="links">
+  <a (click)="pythonfunc()" [class.selected]="python">Python</a><a (click)="nodefunc()"
+    [class.selected]="node">Node.Js</a><a (click)="javafunc()" [class.selected]="java">Java</a><a (click)="netfunc()"
+    [class.selected]="net">ASP.NET Core</a>
+</div>
+<div style="background-color: rgb(214, 225, 234);padding: 1px;margin-bottom:1% ;">
+
+</div>
+
+
+@if(python){<div class="python">Python on beanstalk Coming soon ....</div>}
+@if(node){<div class="node">Node.Js on beanstalk Coming soon ....</div>}
+@if(java){<div class="java">Java on beanstalk Coming soon ....</div>}
+@if(net){<div class=".net">.Net Core on beanstalk Coming soon ....</div>}
