@@ -1,0 +1,64 @@
+<style>
+  a.selected {
+    background-color: rgb(214, 225, 234);
+    /* text-decoration: underline; */
+    padding: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+  }
+</style>
+<h4>A Guide: Deploying your backend Applications on Lambda Functions</h4>
+<hr>
+
+<div class="writer">
+  Judah T Chisare || +263785430774 || <br>
+  AWS Certified Developer -Associate || AWS Certified Solutions Architech -Associate
+
+</div>
+<hr>
+
+<div class="custom-card">
+  <span (click)="toggle_summary()"> @if(lambda){<i class="fa fa-chevron-up" style="color: #454545;font-size: 70%;"
+      aria-hidden="true"></i>} @else{<i class="fa fa-chevron-down" style="color: #454545;font-size: 70%;"
+      aria-hidden="true"></i>}<b> AWS
+      Lambda</b> </span>@if(lambda){<br>
+  <div style="font-size: 70%;opacity: 0;padding: 0;margin-top: -10px;">fsksfksfk</div>}
+  @if(lambda){ <span> Lambda is a serverless computing service provided by Amazon Web Services
+    (AWS). It allows you to
+    run
+    code without
+    provisioning or managing servers. Lambda runs your code only when needed and scales automatically, from a few
+    requests
+    per day to thousands per second. This makes it ideal for building highly scalable, event-driven applications or
+    microservices.
+
+    <br><br>
+
+    One of the notable aspects of AWS Lambda is its pricing model. Lambda functions are billed based on the number of
+    requests made to them and the time it takes for the code to execute. There are no charges when your code is not
+    running. This "pay-per-request" pricing model can make Lambda one of the most cost-effective options for certain
+    workloads, especially those with unpredictable usage patterns.
+  </span>
+  }
+
+</div>
+
+<br>
+<div class="links">
+  <a (click)="pythonfunc()" [class.selected]="python">Python</a><a (click)="nodefunc()"
+    [class.selected]="node">Node.Js</a><a (click)="javafunc()" [class.selected]="java">Java</a><a (click)="netfunc()"
+    [class.selected]="net">ASP.NET Core</a>
+</div>
+<div style="background-color: rgb(214, 225, 234);padding: 1px;margin-bottom:1% ;">
+
+</div>
+
+
+@if(python){<div class="python">Python on lambda Coming soon ....</div>}
+@if(node){<div class="node">Node.Js on lambda Coming soon ....</div>}
+@if(java){<div class="java">Java on lambda Coming soon ....</div>}
+@if(net){<div class=".net">.Net Core on lambda Coming soon ....</div>}

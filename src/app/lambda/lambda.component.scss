@@ -1,0 +1,42 @@
+@media only screen and (min-width: 1200px) {
+  .writer {
+    font-size: 80%;
+    color: gray;
+    // text-align: center;
+    padding: 0;
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    cursor: pointer;
+  }
+
+  .custom-card span:hover {
+    /* Styles to apply when hovering over the <b> element within <span> */
+    color: rgb(21, 21, 47); /* For example, changing text color to red */
+    text-decoration: dotted;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .writer {
+    font-size: 80%;
+    color: gray;
+    // text-align: center;
+    padding: 0;
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    font-size: 80%;
+    cursor: pointer;
+  }
+
+  .custom-card span b:hover {
+    /* Styles to apply when hovering over the <b> element within <span> */
+    color: navy; /* For example, changing text color to red */
+  }
+}

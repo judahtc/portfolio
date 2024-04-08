@@ -17,6 +17,7 @@ export class BlogsComponent implements OnInit {
   my_email: any;
   angularS3 = false;
   freetrial = false;
+  serverless = false;
   ngOnInit(): void {
     this.checkScreenSize();
     this.route.queryParams.subscribe((params) => {
@@ -29,6 +30,8 @@ export class BlogsComponent implements OnInit {
         this.freetrialfunc();
       } else if (nav == 'eb') {
         this.beanstalkfunc();
+      } else if (nav == 'serverless') {
+        this.lambdafunc();
       } else {
         this.freetrialfunc();
       }
@@ -72,16 +75,25 @@ export class BlogsComponent implements OnInit {
     this.angularS3 = true;
     this.beanstalk = false;
     this.freetrial = false;
+    this.serverless = false;
   }
   freetrialfunc() {
     this.angularS3 = false;
     this.beanstalk = false;
     this.freetrial = true;
+    this.serverless = false;
   }
 
   beanstalkfunc() {
     this.beanstalk = true;
     this.angularS3 = false;
     this.freetrial = false;
+    this.serverless = false;
+  }
+  lambdafunc() {
+    this.beanstalk = false;
+    this.angularS3 = false;
+    this.freetrial = false;
+    this.serverless = true;
   }
 }
