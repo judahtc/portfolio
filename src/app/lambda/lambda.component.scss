@@ -6,6 +6,33 @@
     padding: 0;
   }
 
+  .top-pic {
+    display: block;
+    height: 300px;
+    width: 800px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+  .docs-pic {
+    display: block;
+    height: 250px;
+    width: 800px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
+  .code-container {
+    border: 1px solid #ccd;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-left: 5px;
+
+    padding-bottom: 0;
+    margin: 5px 0;
+    background-color: black;
+    overflow-x: auto;
+    color: white;
+  }
   .links {
     display: flex;
     justify-content: space-between;

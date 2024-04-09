@@ -8,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './lambda.component.scss',
 })
 export class LambdaComponent implements OnInit {
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fast_api_code = {};
+  }
   python = true;
   node = false;
   net = false;
   java = false;
-  lambda = true;
+  lambda = false;
+  fast_api_code: any;
+  at: String = '@';
 
   pythonfunc() {
     this.python = true;
