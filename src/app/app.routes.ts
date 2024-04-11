@@ -9,6 +9,7 @@ import { AwsFreeTierComponent } from './aws-free-tier/aws-free-tier.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BeanstalkComponent } from './beanstalk/beanstalk.component';
 import { LambdaComponent } from './lambda/lambda.component';
+import { AwsCliComponent } from './aws-cli/aws-cli.component';
 export const routes: Routes = [
   {
     path: '',
@@ -20,6 +21,7 @@ export const routes: Routes = [
         component: BlogsComponent,
         children: [
           { path: 'angular-on-s3', component: AngularOnS3Component },
+          { path: 'aws-cli', component: AwsCliComponent },
           { path: 'aws-free-tier', component: AwsFreeTierComponent },
           { path: 'beanstalk', component: BeanstalkComponent },
           { path: 'lambda', component: LambdaComponent },

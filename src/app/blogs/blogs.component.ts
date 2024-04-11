@@ -18,6 +18,7 @@ export class BlogsComponent implements OnInit {
   angularS3 = false;
   freetrial = false;
   serverless = false;
+  awscli = false;
   ngOnInit(): void {
     this.checkScreenSize();
     this.route.queryParams.subscribe((params) => {
@@ -32,6 +33,8 @@ export class BlogsComponent implements OnInit {
         this.beanstalkfunc();
       } else if (nav == 'serverless') {
         this.lambdafunc();
+      } else if (nav == 'aws-cli') {
+        this.awscli_func();
       } else {
         this.freetrialfunc();
       }
@@ -76,12 +79,14 @@ export class BlogsComponent implements OnInit {
     this.beanstalk = false;
     this.freetrial = false;
     this.serverless = false;
+    this.awscli = false;
   }
   freetrialfunc() {
     this.angularS3 = false;
     this.beanstalk = false;
     this.freetrial = true;
     this.serverless = false;
+    this.awscli = false;
   }
 
   beanstalkfunc() {
@@ -89,11 +94,20 @@ export class BlogsComponent implements OnInit {
     this.angularS3 = false;
     this.freetrial = false;
     this.serverless = false;
+    this.awscli = false;
   }
   lambdafunc() {
     this.beanstalk = false;
     this.angularS3 = false;
     this.freetrial = false;
     this.serverless = true;
+    this.awscli = false;
+  }
+  awscli_func() {
+    this.beanstalk = false;
+    this.angularS3 = false;
+    this.freetrial = false;
+    this.serverless = false;
+    this.awscli = true;
   }
 }

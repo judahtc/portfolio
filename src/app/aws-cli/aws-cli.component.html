@@ -1,0 +1,111 @@
+<style>
+  a.selected {
+    background-color: rgb(214, 225, 234);
+    /* text-decoration: underline; */
+    padding: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+  }
+</style>
+<h4>A Guide: Logging into AWS CLI on your local computer</h4>
+<hr>
+
+<div class="writer">
+  Judah T Chisare || +263785430774 || <br>
+  AWS Certified Developer -Associate || AWS Certified Solutions Architech -Associate
+
+</div>
+<hr>
+
+<div class="custom-card">
+  <span (click)="toggle_summary()"> @if(awscli){<i class="fa fa-chevron-up" style="color: #454545;font-size: 70%;"
+      aria-hidden="true"></i>} @else{<i class="fa fa-chevron-down" style="color: #454545;font-size: 70%;"
+      aria-hidden="true"></i>}<b> AWS
+      CLI</b> </span>@if(awscli){<br>
+  <div style="font-size: 70%;opacity: 0;padding: 0;margin-top: -10px;">fsksfksfk</div>}
+  @if(awscli){ <span>
+    The AWS Command Line Interface (CLI) is a unified tool that provides a consistent interface for managing AWS
+    services from the command line. It allows you to control multiple AWS services directly from your local computer's
+    terminal or
+    command prompt. You can perform tasks such as creating and managing instances, uploading data to S3 buckets, pushing
+    your docker images to ECR, configuring
+    security groups, and more.
+
+
+  </span>
+  }
+
+</div>
+<br>
+<div class="steps1">
+  <div class="custom-card"> <b>Step 1: Downloading, installing and configuring AWS CLI</b>
+    <ol class="custom-mt">
+
+      <li>Download AWS CLI (Command Line Interface) installer from <a style="color: blue;"
+          href="https://awscli.amazonaws.com/AWSCLIV2.msi" target="_blank">Windows installer</a>
+        or <a style="color: blue;" href="https://awscli.amazonaws.com/AWSCLIV2.pkg" target="_blank"> MAC installer</a>
+      </li>
+
+      <li>Run your downloaded file and follow the on-screen instructions to complete the installation.</li>
+      <ul class="custom-mt">
+        <li style="color:green">To confirm the installation, open the Start menu, search for cmd to open a command
+          prompt
+          window, and at the
+          command prompt use the aws --version command.
+
+        </li>
+      </ul>
+    </ol>
+  </div>
+  <br>
+
+  <div class="custom-card"> <b>Step 2: Creating an IAM USER</b>
+
+    <ol class="custom-mt">
+      <li>Open your AWS Management Console, navigate to IAM, then Users</li>
+      <li>Create an IAM USER, and tick on <strong>'Provide user access to the AWS Management Console
+          - optional'</strong></li>
+      <li>Under User Type, select <strong>'
+          I want to create an IAM user'</strong></li>
+      <li>Under Permissions options, select <strong>'Attach policies directly'</strong>,
+        search for <strong>'AdministratorAccess'</strong>, click next </li>
+      <li>Click <strong>Download .csv file and keep it if you would want to sign into the management console with that
+          lAM user</strong></li>
+
+      <li> Now navigate back to Users, and open the user you have just created, navigate to security credentials and
+        click create access keys, (choose Command line interface) and click next
+      </li>
+
+      <li>Click create access key and click download the .csv file</li>
+    </ol>
+  </div>
+  <br>
+
+  <div class="custom-card"> <b>Step 3: Configuring the AWS CLI</b>
+
+    <ol class="custom-mt">
+      <li>Open your local computer CMD(Command Prompt) as an administrator </li>
+
+      <li>Copy and paste the following command in your cmd
+        <div class="code-container">
+          <span>
+            <pre> aws configure</pre>
+          </span>
+        </div>
+
+      </li>
+      <li>From the .csv file you have downloaded, copy the <strong>Access key ID</strong> and paste into the cli and
+        click enter, then
+        copy the <strong>Secret access key</strong> and enter into the cli </li>
+      <ul class="custom-mt">
+        <li style="color: green;"> YOU ARE GOOD TO GO!!!</li>
+
+      </ul>
+    </ol>
+  </div>
+
+</div>
