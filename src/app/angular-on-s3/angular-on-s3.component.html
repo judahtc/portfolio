@@ -12,13 +12,10 @@
     <img src="/assets/img/angular plus s3.png" alt="Spinning Image" class="top-pic">
     <p class="intro custom-card">
       In this blog, l am going to be writing on hosting and deploying your frontend application (React JS/
-      Angular)
-      to
-      Amazon S3 in less than 10mins. In developer terms, Amazon S3 (Simple Storage Service) is a scalable cloud
-      storage service provided by Amazon Web Services (AWS). It allows developers to store and retrieve any amount
-      of
-      data at any time from anywhere on the web. In this case, we are going to use Amazon S3 to seamlessly host
-      static
+      Angular) to Amazon S3 in less than 10mins. <span class="break"></span>In developer terms, Amazon S3 is a scalable
+      cloud
+      storage service provided by AWS. It allows developers to store and retrieve any amount
+      of data. In this case, we are going to use S3 to seamlessly host static
       websites at insignificant costs.
     </p>
   </div>
@@ -45,7 +42,7 @@
           read access to the bucket objects, then tick the acknowledgement box for unblocking public access</li>
         <li>Leave the next options to default and click "create bucket"</li>
       </ol>
-      <HR>
+
       <li>After the bucket has been successfully created, navigate the bucket and click on <B
           style="font-weight: 600;">Properties</B></li>
       <ol>
@@ -92,8 +89,8 @@
         <ol>
           <li>Navigate to the application's root folder</li>
           <li>Open your code Editor's terminal and type your build command:</li>
-          <br>
-          <span style="font-weight: 600;">Angular</span>
+
+          <span class="custom-mt" style="font-weight: 600;">Angular</span>
           <div class="code-container">
 
             <span>
@@ -127,7 +124,7 @@
       <li>CICD with Code Pipeline <sup style="font-size: 40%;color: green;">Coming soon </sup></li>
     </ul>
 
-    <br>
+
     <span style="font-weight: 700;">Manually Uploading the built code</span>
     <ol>
       <li>Open you Amazon s3 bucket and click "upload" </li>

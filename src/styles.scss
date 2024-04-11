@@ -1341,3 +1341,27 @@ footer .credits {
 footer .credits a {
   color: #fff;
 }
+
+@media only screen and (max-width: 1200px) {
+  p,
+  b,
+  li,
+  span {
+    font-size: 90%;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .custom-mt {
+    margin-top: 7px;
+  }
+
+  .break::before {
+    content: "\A"; /* Unicode for line break */
+    white-space: pre; /* Ensures white space is preserved */
+  }
+
+  .break::after {
+    content: "\A"; /* Unicode for line break */
+    white-space: pre; /* Ensures white space is preserved */
+  }
+}
