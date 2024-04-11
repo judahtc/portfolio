@@ -45,12 +45,13 @@
   <div class="custom-card"> <b>Step 1: Downloading, installing and configuring AWS CLI</b>
     <ol class="custom-mt">
 
-      <li>Download AWS CLI (Command Line Interface) installer from <a style="color: blue;"
+      <li class="custom-mt">Download AWS CLI (Command Line Interface) installer from <a style="color: blue;"
           href="https://awscli.amazonaws.com/AWSCLIV2.msi" target="_blank">Windows installer</a>
         or <a style="color: blue;" href="https://awscli.amazonaws.com/AWSCLIV2.pkg" target="_blank"> MAC installer</a>
       </li>
 
-      <li>Run your downloaded file and follow the on-screen instructions to complete the installation.</li>
+      <li class="custom-mt">Run your downloaded file and follow the on-screen instructions to complete the installation.
+      </li>
       <ul class="custom-mt">
         <li style="color:green">To confirm the installation, open the Start menu, search for cmd to open a command
           prompt
@@ -66,21 +67,23 @@
   <div class="custom-card"> <b>Step 2: Creating an IAM USER</b>
 
     <ol class="custom-mt">
-      <li>Open your AWS Management Console, navigate to IAM, then Users</li>
-      <li>Create an IAM USER, and tick on <strong>'Provide user access to the AWS Management Console
+      <li class="custom-mt">Open your AWS Management Console, navigate to IAM, then Users</li>
+      <li class="custom-mt">Create an IAM USER, and tick on <strong>'Provide user access to the AWS Management Console
           - optional'</strong></li>
-      <li>Under User Type, select <strong>'
+      <li class="custom-mt">Under User Type, select <strong>'
           I want to create an IAM user'</strong></li>
-      <li>Under Permissions options, select <strong>'Attach policies directly'</strong>,
+      <li class="custom-mt">Under Permissions options, select <strong>'Attach policies directly'</strong>,
         search for <strong>'AdministratorAccess'</strong>, click next </li>
-      <li>Click <strong>Download .csv file and keep it if you would want to sign into the management console with that
+      <li class="custom-mt">Click <strong>Download .csv file and keep it if you would want to sign into the management
+          console with that
           lAM user</strong></li>
 
-      <li> Now navigate back to Users, and open the user you have just created, navigate to security credentials and
+      <li class="custom-mt"> Now navigate back to Users, and open the user you have just created, navigate to security
+        credentials and
         click create access keys, (choose Command line interface) and click next
       </li>
 
-      <li>Click create access key and click download the .csv file</li>
+      <li class="custom-mt">Click create access key and click download the .csv file</li>
     </ol>
   </div>
   <br>
@@ -88,9 +91,9 @@
   <div class="custom-card"> <b>Step 3: Configuring the AWS CLI</b>
 
     <ol class="custom-mt">
-      <li>Open your local computer CMD(Command Prompt) as an administrator </li>
+      <li class="custom-mt">Open your local computer CMD(Command Prompt) as an administrator </li>
 
-      <li>Copy and paste the following command in your cmd
+      <li class="custom-mt">Copy and paste the following command in your cmd
         <div class="code-container">
           <span>
             <pre> aws configure</pre>
@@ -98,7 +101,8 @@
         </div>
 
       </li>
-      <li>From the .csv file you have downloaded, copy the <strong>Access key ID</strong> and paste into the cli and
+      <li class="custom-mt">From the .csv file you have downloaded, copy the <strong>Access key ID</strong> and paste
+        into the cli and
         click enter, then
         copy the <strong>Secret access key</strong> and enter into the cli </li>
       <ul class="custom-mt">
