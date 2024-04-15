@@ -64,15 +64,25 @@
   <div class="steps">
     <b style="font-weight: 800;margin-bottom: 10px;">Step 1:</b>
     <br>
-    <span class="custom-mt"> Setting up your Fastapi Application </span> &nbsp; <a style="color: blue;"
+    <span class="custom-mt"> Setting up your Fastapi Application </span> &nbsp; <a hidden style="color: blue;"
       href="https://fastapi.tiangolo.com/" target="_blank">(visit docs)</a>
 
     <ol class="custom-mt">
       <li>Create an empty folder, then open it with your text editor</li>
-      <li>Using your cmd terminal, create a python environment</li>
+      <li>Using your text editor cmd terminal, create a python environment</li>
       <div class="code-container">
         <span>
           <pre> python -m venv venv</pre>
+        </span>
+
+      </div>
+      <!-- <br> -->
+      <li>Activate the venv environment</li>
+
+
+      <div class="code-container">
+        <span>
+          <pre> venv\Scripts\activate</pre>
         </span>
 
       </div>
@@ -81,21 +91,22 @@
       <div class="code-container">
         <span>
           <pre>
-  from typing import Union
-  from fastapi import FastAPI
-  from mangum import Mangum
+from typing import Union
+from fastapi import FastAPI
+from mangum import Mangum
 
-  app = FastAPI()
-  handler = Mangum(app)
+app = FastAPI()
+handler = Mangum(app)
 
-  {{at}}app.get("/")
-  def read_root():
-      return {{ '{' }}"Hello": "World"{{ '}' }}
+{{at}}app.get("/")
+def read_root():
+    return {{ '{' }}"Hello": "World"{{ '}' }}
             </pre>
         </span>
 
       </div>
       <br>
+
       <li>Install the required depencies: <i>fastapi, uvicorn and <a style="color: blue;" href="https://mangum.io/"
             target="_blank">Mangum</a></i> using pip
       </li>
@@ -106,6 +117,8 @@
         </span>
 
       </div>
+
+
 
       <li> Create a <b> <i>requirements.txt</i></b> file and run the following command in your terminal</li>
 
@@ -243,6 +256,197 @@
 </div>
 
 }
-@if(node){<div class="node">Node.Js on lambda Coming soon ....</div>}
+@if(node){<div class="node"><strong hidden> Deploying an end to end ExpressjS endpoint to AWS Lambda using docker
+    images.</strong>
+  <br>
+  <div class="steps">
+    <b style="font-weight: 800;margin-bottom: 10px;">Step 1:</b>
+    <br>
+    <span class="custom-mt"> Setting up your Express JS Application </span> &nbsp; <a hidden style="color: blue;"
+      href="https://fastapi.tiangolo.com/" target="_blank">(visit docs)</a>
+
+    <ol class="custom-mt">
+      <li>Create an empty folder, then open it with your text editor</li>
+
+      <!-- <br> -->
+      <li>Create the <b><i>app.js</i></b> file and paste the following code</li>
+      <div class="code-container">
+        <span>
+          <pre>
+  const express = require("express");
+  const serverless = require("serverless-http");
+  const app = express();
+  const port = 3000;
+
+  <span style="color: green;font-weight: 650;">// Define a route handler for the GET request to '/'</span>
+  app.get("/", (req, res) => {{'{'}}
+      res.send("Hello, world!");
+  {{'}'}});
+
+  <span style="color: green;font-weight: 650;">// Start the server</span>
+  app.listen(port, () => {{'{'}}
+      console.log(`Server is listening at ${{'{'}}port{{'}'}}`);
+      {{'}'}});
+
+  const handler = serverless(app);
+
+  module.exports.handler = async (event, context) => {{'{'}}
+  <span style="color: green;font-weight: 650;">// Return the result of serverless Express app</span>
+      return await handler(event, context);
+      {{'}'}};
+
+            </pre>
+        </span>
+
+      </div>
+      <br>
+
+      <li>Install the required depencies: <i>express and <a style="color: blue;"
+            href="https://www.npmjs.com/package/serverless-http" target="_blank">serverless-http</a></i> using npm
+      </li>
+
+      <div class="code-container">
+        <span>
+          <pre> npm install express serverless-http</pre>
+        </span>
+
+      </div>
+
+
+      <li> Now run the following command to start the application server</li>
+
+      <div class="code-container">
+        <span>
+          <pre> node app.js</pre>
+        </span>
+
+      </div>
+    </ol>
+
+    <ul>
+      <li>By now, your ExpressjS application code should be looking like the following</li>
+
+
+      <img src="/assets/img/initial_nodejs.png" alt="fastapi" class="top-pic-node">
+
+
+
+    </ul>
+    <ul>
+      <li>now visit <a style="color: blue;" href="http://localhost:3000" target="_blank">localhost:3000</a> to
+        access
+        your endpoint</li>
+
+      <!-- <img src="/assets/img/docs.png" alt="fastapi" class="docs-pic"> -->
+
+
+
+    </ul>
+
+    <div class="steps">
+      <b>Step 2: Containerizing your ExpressJS Application</b>
+
+      <ol class="custom-mt">
+        <li>Create a <i style="font-weight: 500;">Dockerfile</i> file and add the following code</li>
+        <div class="code-container">
+          <span>
+            <pre>
+  <span style="color: green;font-weight: 650;"># Use the AWS Lambda Node.js base image</span>
+  FROM public.ecr.aws/lambda/nodejs:14
+
+  <span style="color: green;font-weight: 650;"># Set the working directory to the Lambda task root directory</span>
+  WORKDIR /var/task
+
+  <span style="color: green;font-weight: 650;"># Copy the contents of the current directory into the Lambda task root directory</span>
+  COPY . /var/task
+
+  <span style="color: green;font-weight: 650;"># Install serverless-http package</span>
+  RUN npm install serverless-http
+
+  <span style="color: green;font-weight: 650;"># Install all dependencies listed in package.json</span>
+  RUN npm install
+
+  <span style="color: green;font-weight: 650;"># Set the Lambda handler to your Express.js application entry point</span>
+  CMD [ "app.handler" ]
+
+            </pre>
+          </span>
+        </div>
+        <li>Run the following command to build your docker container</li>
+        <div class="code-container">
+          <span>
+            <pre>  docker build -t myapp .</pre>
+          </span>
+        </div>
+
+        <li class="custom-mt">Login into your <a
+            href="https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26state%3DhashArgsFromTB_eu-north-1_e3f77f4b5bdb3d79&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=2JRVXbs_CtleRl4EHB6GiGXqdaoq-7S6poXwO-2gN1I&code_challenge_method=SHA-256"
+            target="_blank" style="color: blue;">aws management console </a> and navigate to AWS ECR(Elastic Container
+          Registry)</li>
+
+        <li class="custom-mt">Navigate to Private repositories and click <b>Create Repository</b>, then name it `myapp`
+        </li>
+        <li class="custom-mt">Navigate into the repository and click <b>view push commands</b></li>
+        <li class="custom-mt ">copy the commands, paste them in the terminal and run them one by one</li>
+        <ul class="custom-mt" style="color: red;">
+          <li>Kindly note that on the above commands, you need to have logged into aws cli with your terminal</li>
+          <li>Visit <a href='/blogs/aws-cli?nav=aws-cli' style="color: blue;">`logging into aws cli`</a> on how to gain
+            access to ECR from your
+            text
+            editor</li>
+        </ul>
+
+
+
+
+      </ol>
+    </div>
+
+
+    <div class="steps">
+      <div class="custom-card">
+        <b>Step 3: Creating the lambda function</b>
+
+        <ol class="">
+          <li class="custom-mt">Visit your AWS management console and navigate to lambda </li>
+          <li class="custom-mt">Click <b>create function </b></li>
+          <li class="custom-mt">Select <b>`Container image` </b></li>
+          <li class="custom-mt">give your function a name of your choice</li>
+          <li class="custom-mt">Click on Browse images and select the latest image of the repository you have just
+            created,then click select image.
+          </li>
+          <li class="custom-mt">Click create function
+          </li>
+
+        </ol>
+      </div>
+
+    </div>
+    <BR>
+    <div class="steps">
+      <div class="custom-card">
+
+        <b>Step 4: Creating a Function URL</b>
+        <ol>
+          <li class="custom-mt">Open your lambda function</li>
+          <li class="custom-mt">Navigate to Configuration,then Function URL</li>
+          <li class="custom-mt">click <b>`Create function URL`</b></li>
+          <li class="custom-mt">On Auth type, chose `NONE`</li>
+          <li class="custom-mt">Then click <b>save</b></li>
+          <li class="custom-mt">Now if you checkyour right side of your lambda console, you will see a link under
+            Function
+            Arn, copy it and paste in your browser</li>
+
+          <ul class="custom-mt">
+            <li style="color: green;">NOW YOU ARE GOOD TO GO</li>
+          </ul>
+
+
+        </ol>
+      </div>
+
+    </div>
+  </div> ....
+</div>}
 @if(java){<div class="java">Java on lambda Coming soon ....</div>}
 @if(net){<div class=".net">.Net Core on lambda Coming soon ....</div>}
