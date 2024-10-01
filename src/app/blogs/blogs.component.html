@@ -36,7 +36,7 @@
       <button class="btn sm" (click)="toggle_out()"><i class="fa fa-chevron-right" style="color: #454545;"
           aria-hidden="true"></i></button>
     </div>}
-    <div *ngIf="sidebar" id="csidebar" class="custom-sidebar" style="background-color: rgb(242, 244, 246);">
+    <div *ngIf="sidebar" id="csidebar" class="custom-sidebar" style="background-color: white;">
 
       <div class="user">
         AWS DEV BLOGS
@@ -53,7 +53,7 @@
           <li><a href="/blogs/aws-free-tier?nav=freetier" (click)="freetrialfunc()" [class.selected]="freetrial">
               Creating an AWS Free Tier Account
             </a></li>
-          <li><a href="/blogs/aws-cli?nav=aws-cli" (click)="awscli_func" [class.selected]="awscli">
+          <li><a href="/blogs/aws-cli?nav=aws-cli" (click)="awscli_func()" [class.selected]="awscli">
               AWS CLI (Command Line Interface)
             </a></li>
           <li><a href="/blogs/angular-on-s3?nav=NgS3" (click)="AngularS3func()" [class.selected]="angularS3">
