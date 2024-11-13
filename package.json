@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "aws-deploy": "aws s3 sync dist/judah-portfolio/browser/ s3://judahportfolio --profile second-account"
+    "aws-deploy": "aws s3 sync dist/judah-portfolio/browser/ s3://dev-po --region eu-north-1"
   },
   "private": true,
   "dependencies": {
