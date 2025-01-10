@@ -19,6 +19,9 @@ export class PortalComponent implements OnInit {
   ngOnInit(): void {
     this.checkScreenSize();
     this.route.queryParams.subscribe((params) => {
+      if (Object.keys(params).length == 0) {
+        this.router.navigate(['/portfolio'], { queryParams: { page: 'home' } });
+      }
       let page = params['page'];
       if (page == 'home') {
         this.home = true;
